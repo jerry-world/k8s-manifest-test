@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: demo-deployment
   labels:
     deployment.environment: development
 spec:
@@ -12,8 +12,8 @@ spec:
         deployment.environment: development
     spec:
       containers:
-        - name: demo
-          image: jerryworld/demo:7a528423
+        - name: demo-dev
+          image: jerryworld/demo-dev:7a528423
           ports:
             - containerPort: 9000
           env:

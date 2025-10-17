@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo1-deployment
+  labels:
+    deployment.environment: production
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        deployment.environment: production
+    spec:
+      containers:
+        - name: demo1
+          image: jerryworld/demo1:f4b85c12f0828137c9df422f16ff551768e36f84
+          ports:
+            - containerPort: 9000
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+      imagePullSecrets:
+        - name: docker-hub-secret

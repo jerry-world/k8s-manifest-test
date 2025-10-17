@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo1-deployment
+  labels:
+    deployment.environment: development
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        deployment.environment: development
+    spec:
+      containers:
+        - name: demo1-dev
+          image: jerryworld/demo1-dev:7a528423
+          ports:
+            - containerPort: 9000
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev

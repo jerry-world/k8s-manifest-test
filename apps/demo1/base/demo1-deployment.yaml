@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo1-deployment
+  labels:
+    app: demo1
+    service.name: demo1
+    service.group: jerryworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo1
+  template:
+    metadata:
+      labels:
+        app: demo1
+        service.name: demo1
+        service.group: jerrywrold

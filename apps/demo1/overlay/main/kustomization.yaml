@@ -6,6 +6,6 @@ resources:
   - ingress.yaml
 
 patches:
-  - path: demo-deployment-patch.yaml
+  - path: demo1-deployment-patch.yaml
 
-namespace: demo-dev
+namespace: demo1

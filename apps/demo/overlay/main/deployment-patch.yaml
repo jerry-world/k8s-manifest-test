@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-deployment
+  name: deployment
   labels:
     deployment.environment: development
 spec:
@@ -12,36 +12,13 @@ spec:
         deployment.environment: development
     spec:
       containers:
-        - name: ois-customer
+        - name: demo
           image: jerryworld/demo:aed4cd0f
           ports:
             - containerPort: 9000
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: dev
-          startupProbe:
-            httpGet:
-              port: 5200
-              path: /actuator/health/readiness
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            failureThreshold: 30
-            timeoutSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: 5200
-            initialDelaySeconds: 5
-            periodSeconds: 15
-            failureThreshold: 3
-            timeoutSeconds: 5
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: 5200
-            initialDelaySeconds: 5
-            periodSeconds: 60
-            failureThreshold: 3
-            timeoutSeconds: 5
+              value: prod
+
       imagePullSecrets:
         - name: docker-hub-secret

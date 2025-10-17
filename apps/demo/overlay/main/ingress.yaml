@@ -16,4 +16,4 @@ spec:
               service:
                 name: demo
                 port:
-                  number: 8080
+                  number: 9000

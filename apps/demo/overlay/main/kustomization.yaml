@@ -8,4 +8,4 @@ resources:
 patches:
   - path: deployment-patch.yaml
 
-namespace: ois-customer-dev
+namespace: demo

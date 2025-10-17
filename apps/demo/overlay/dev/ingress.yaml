@@ -11,7 +11,7 @@ spec:
     - host: jerry.world
       http:
         paths:
-          - path: /demo-dev
+          - path: /demo-dev(/|$)(.*)
             pathType: Prefix
             backend:
               service:

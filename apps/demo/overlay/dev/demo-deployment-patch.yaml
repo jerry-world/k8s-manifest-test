@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: demo-dev
-          image: jerryworld/demo-dev:7a528423
+          image: jerryworld/demo-dev:dc07058dae0a46f7b845cdd28472b1b3d8955f9b
           ports:
             - containerPort: 9000
           env:

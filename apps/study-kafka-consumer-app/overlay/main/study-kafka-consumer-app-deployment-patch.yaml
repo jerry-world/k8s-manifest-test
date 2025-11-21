@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: study-kafka-consumer-app-deployment
+  labels:
+    deployment.environment: production
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        deployment.environment: production
+    spec:
+      containers:
+        - name: demo1
+          image: jerryworld/study-kafka-consumer-app-main:bf11a4df7bc1204e31b839395c3dc4036253c930
+          ports:
+            - containerPort: 9000
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+      imagePullSecrets:
+        - name: docker-hub-secret

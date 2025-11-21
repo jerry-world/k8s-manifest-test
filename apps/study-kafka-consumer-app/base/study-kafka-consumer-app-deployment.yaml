@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: study-kafka-consumer-app-deployment
+  labels:
+    app: study-kafka-consumer-app
+    service.name: study-kafka-consumer-app
+    service.group: jerryworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: study-kafka-consumer-app
+  template:
+    metadata:
+      labels:
+        app: study-kafka-consumer-app
+        service.name: study-kafka-consumer-app
+        service.group: jerrywrold

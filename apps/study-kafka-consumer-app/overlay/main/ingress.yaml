@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: study-kafka-consumer-app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: jerry.world
+      http:
+        paths:
+          - path: /study-kafka-consumer-app(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: study-kafka-consumer-app
+                port:
+                  number: 80

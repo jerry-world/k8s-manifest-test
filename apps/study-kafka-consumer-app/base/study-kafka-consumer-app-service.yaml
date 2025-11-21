@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo1
+  name: study-kafka-consumer-app
 spec:
   selector:
-    app: demo1
+    app: study-kafka-consumer-app
   ports:
     - port: 80
       targetPort: 9000

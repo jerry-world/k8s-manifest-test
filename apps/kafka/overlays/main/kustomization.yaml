@@ -1,0 +1,51 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: main-
+
+namespace: kafka-main
+
+resources:
+  - ../../base
+
+patches:
+  - target:
+      kind: StatefulSet
+      name: kafka
+    patch: |
+      apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: kafka
+      spec:
+        replicas: 1
+        template:
+          spec:
+            containers:
+              - name: kafka
+                resources:
+                  requests:
+                    cpu: "100m"
+                    memory: "256Mi"
+                  limits:
+                    cpu: "500m"
+                    memory: "512Mi"
+  - target:
+      kind: StatefulSet
+      name: zookeeper
+    patch: |
+      apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: zookeeper
+      spec:
+        replicas: 1
+        template:
+          spec:
+            containers:
+              - name: zookeeper
+                resources:
+                  requests:
+                    cpu: "50m"
+                    memory: "128Mi"
+                    # limits는 필요시 추가

@@ -9,4 +9,5 @@ resources:
   - zookeeper-statefulset.yaml
   - kafka-config.yaml
   - kafka-service.yaml
+  - kafka-external-service.yaml
   - kafka-statefulset.yaml
